@@ -1,17 +1,18 @@
 const axios = require('axios');
 require('dotenv').config();
-const { GET_LINKS } = require("./utils/linkQueries");
+const { CREATE_LINK } = require("./utils/linkQueries");
 const sendQuery = require("./utils/sendQuery");
 const formattedResponse = require("./utils/formattedResponse")
 
 exports.handler = async (event) => {
     
-
+    const {name, url, description} = JSON.parse(event.body);
+    const variables = {name, url, description, archived: false};
     try {
-        const res = await sendQuery(GET_LINKS);
-        const data = res.allLinks.data
+        const {createLink: createdLink} = await sendQuery(CREATE_LINK, variables);
+        //const data = res.allLinks.data;
 
-        return formattedResponse(200, data);
+        return formattedResponse(200, createdLink);
             
     }catch(err){
         console.error(err);
