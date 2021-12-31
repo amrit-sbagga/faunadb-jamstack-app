@@ -4,6 +4,10 @@ const sendQuery = require("./utils/sendQuery");
 const formattedResponse = require("./utils/formattedResponse")
 
 exports.handler = async (event) => {
+
+    if(event.httpMethod !== 'PUT'){
+        return formattedResponse(405, {err : 'Method not Supported.'});
+    }
     
     const { _id : id, name, url, description, archived} = JSON.parse(event.body);
     const variables = { id, name, url, description, archived};
