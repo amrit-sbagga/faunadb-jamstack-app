@@ -16,7 +16,7 @@ function App() {
       console.log(links);
       setLinks(links);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
    
   }

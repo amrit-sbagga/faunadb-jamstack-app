@@ -12,7 +12,7 @@ export default function LinkCard({link, refreshLinks}) {
             });
             refreshLinks();
         } catch (error) {
-            console.log("updateLink error : ", error);
+            console.error("updateLink error : ", error);
         }
     }
 
@@ -25,7 +25,7 @@ export default function LinkCard({link, refreshLinks}) {
             });
             refreshLinks();
         } catch (error) {
-            console.log("deleteLink error : ", error);
+            console.error("deleteLink error : ", error);
         }
     }
 
