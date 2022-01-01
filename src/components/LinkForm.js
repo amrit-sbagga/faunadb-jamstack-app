@@ -16,10 +16,11 @@ export default function LinkForm({refreshLinks}) {
         e.preventDefault();
         const body = {name, url, description};
         try {
-            const res = await fetch('/api/createLink', {
+            await fetch('/api/createLink', {
                 method : 'POST',
                 body : JSON.stringify(body)
             });
+            //console.log("createLink res = ", res);
             resetForm();
             refreshLinks();
         } catch (error) {
