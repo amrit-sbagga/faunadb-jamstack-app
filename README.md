@@ -12,3 +12,5 @@ To install dependencies, use:
 
 To run project, use below command:
 >> netlify dev
+
+Deployed here : https://determined-bartik-1ba170.netlify.app/
