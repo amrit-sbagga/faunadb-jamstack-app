@@ -11,6 +11,7 @@ exports.handler = async (event) => {
     
     const { _id : id, name, url, description, archived} = JSON.parse(event.body);
     const variables = { id, name, url, description, archived};
+   // console.log("variables here =>", variables);
     try {
         const {updateLink: updatedLink} = await sendQuery(UPDATE_LINK, variables);
         //const data = res.allLinks.data;
